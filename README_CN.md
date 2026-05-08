@@ -1,7 +1,7 @@
 # MemFabric
 
 <p align="center">
-  <img src="assets/logo_enhanced.png" alt="MemFabric Logo" width="400">
+  <img src="assets/logo_enhanced.png" alt="MemFabric Logo" width="280">
 </p>
 
 <p align="center">
