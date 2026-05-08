@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environment
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MemFabric data
+*.db
+*.db-journal
+*.db-wal
+vectors/
+
+# Temp
+*.tmp
+*.log
+
+# OpenClaw & Hermes source (for reference only)
+openclaw-src/
+hermes-src/
+assets/*.png

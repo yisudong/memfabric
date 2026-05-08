@@ -1,0 +1,8 @@
+{
+  "mcp_servers": {
+    "memfabric": {
+      "command": "python3",
+      "args": ["-m", "memfabric.server"]
+    }
+  }
+}

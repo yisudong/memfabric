@@ -1,0 +1,18 @@
+# OpenClaw 接入 MemFabric
+
+在 `~/.openclaw/openclaw.json` 中添加:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "memfabric": {
+        "command": "python3",
+        "args": ["-m", "memfabric.server"]
+      }
+    }
+  }
+}
+```
+
+重启 Gateway (`openclaw gateway restart`)，在聊天中使用 `/memory_search` 等命令。

@@ -1,0 +1,18 @@
+# Cursor 接入 MemFabric
+
+1. 打开 Cursor Settings → Features → MCP Servers
+2. 点击 "Add new MCP Server"
+3. 配置如下:
+
+```json
+{
+  "mcpServers": {
+    "memfabric": {
+      "command": "python3",
+      "args": ["-m", "memfabric.server"]
+    }
+  }
+}
+```
+
+4. 保存后重启 Cursor，在 Agent 对话中即可使用 memory_* 系列工具

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "memfabric": {
+      "command": "python3",
+      "args": ["-m", "memfabric.server"],
+      "cwd": "${MEMFABRIC_HOME}"
+    }
+  }
+}

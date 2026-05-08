@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="fabricGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a6cf7;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#7b2ff7;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#4a6cf7;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a6cf7"/>
+      <stop offset="100%" style="stop-color:#6d8af7"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7b2ff7"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7b2ff7;stop-opacity:1"/>
+      <stop offset="60%" style="stop-color:#4a6cf7;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0.8"/>
+    </radialGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#4a6cf7;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#bgGrad)" rx="30" ry="30"/>
+
+  <!-- Glow behind core -->
+  <circle cx="300" cy="300" r="120" fill="url(#glowGrad)" filter="url(#softGlow)"/>
+
+  <!-- Fabric threads / connections -->
+  <g stroke="url(#fabricGrad)" stroke-width="2" fill="none" opacity="0.7">
+    <!-- Top-left agent to core -->
+    <path d="M 155,155 Q 220,230 300,300" stroke-dasharray="6,4"/>
+    <!-- Top-right agent to core -->
+    <path d="M 445,155 Q 380,230 300,300" stroke-dasharray="6,4"/>
+    <!-- Bottom-left agent to core -->
+    <path d="M 155,445 Q 220,370 300,300" stroke-dasharray="6,4"/>
+    <!-- Bottom-right agent to core -->
+    <path d="M 445,445 Q 380,370 300,300" stroke-dasharray="6,4"/>
+    <!-- Top agent to core -->
+    <path d="M 300,90 Q 300,190 300,300" stroke-dasharray="6,4"/>
+    <!-- Bottom agent to core -->
+    <path d="M 300,510 Q 300,410 300,300" stroke-dasharray="6,4"/>
+    <!-- Left agent to core -->
+    <path d="M 90,300 Q 190,300 300,300" stroke-dasharray="6,4"/>
+    <!-- Right agent to core -->
+    <path d="M 510,300 Q 410,300 300,300" stroke-dasharray="6,4"/>
+  </g>
+
+  <!-- Inter-agent fabric mesh (curved connections) -->
+  <g stroke="url(#fabricGrad)" stroke-width="1" fill="none" opacity="0.3">
+    <path d="M 155,155 Q 200,120 300,90 Q 400,120 445,155"/>
+    <path d="M 445,155 Q 480,220 510,300 Q 480,380 445,445"/>
+    <path d="M 445,445 Q 380,480 300,510 Q 220,480 155,445"/>
+    <path d="M 155,445 Q 120,380 90,300 Q 120,220 155,155"/>
+  </g>
+
+  <!-- Data particles along threads -->
+  <g filter="url(#glow)">
+    <circle cx="230" cy="230" r="3" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="370" cy="230" r="3" fill="#67e8f9" opacity="0.8"/>
+    <circle cx="230" cy="370" r="3" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="370" cy="370" r="3" fill="#67e8f9" opacity="0.8"/>
+    <circle cx="300" cy="200" r="3" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="300" cy="400" r="3" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="200" cy="300" r="3" fill="#67e8f9" opacity="0.8"/>
+    <circle cx="400" cy="300" r="3" fill="#67e8f9" opacity="0.8"/>
+  </g>
+
+  <!-- Agent nodes (geometric shapes) -->
+  <!-- Top-left: Hexagon (representing coding agent) -->
+  <g transform="translate(155,155)">
+    <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="url(#nodeGrad1)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="16" font-family="monospace">&lt;/&gt;</text>
+  </g>
+
+  <!-- Top-right: Diamond (representing research agent) -->
+  <g transform="translate(445,155)">
+    <polygon points="0,-28 28,0 0,28 -28,0" fill="url(#nodeGrad2)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif">R</text>
+  </g>
+
+  <!-- Bottom-left: Square (representing assistant agent) -->
+  <g transform="translate(155,445)">
+    <rect x="-25" y="-25" width="50" height="50" rx="6" fill="url(#nodeGrad3)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif">A</text>
+  </g>
+
+  <!-- Bottom-right: Circle (representing automation agent) -->
+  <g transform="translate(445,445)">
+    <circle r="28" fill="url(#nodeGrad1)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="18" font-family="sans-serif">⚙</text>
+  </g>
+
+  <!-- Top: Triangle (representing scheduler agent) -->
+  <g transform="translate(300,90)">
+    <polygon points="0,-25 28,20 -28,20" fill="url(#nodeGrad2)" opacity="0.9"/>
+    <text x="0" y="8" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif">S</text>
+  </g>
+
+  <!-- Bottom: Pentagon (representing deploy agent) -->
+  <g transform="translate(300,510)">
+    <polygon points="0,-28 26,-8 16,24 -16,24 -26,-8" fill="url(#nodeGrad3)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif">D</text>
+  </g>
+
+  <!-- Left: Parallelogram (representing data agent) -->
+  <g transform="translate(90,300)">
+    <polygon points="-10,-25 25,-25 10,25 -25,25" fill="url(#nodeGrad1)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif">DB</text>
+  </g>
+
+  <!-- Right: Star-ish (representing creative agent) -->
+  <g transform="translate(510,300)">
+    <polygon points="0,-28 8,-10 28,-10 13,4 19,24 0,12 -19,24 -13,4 -28,-10 -8,-10" fill="url(#nodeGrad2)" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif">C</text>
+  </g>
+
+  <!-- Central core: Memory Fabric -->
+  <circle cx="300" cy="300" r="55" fill="url(#coreGrad)" stroke="#a78bfa" stroke-width="2" filter="url(#glow)"/>
+  <!-- Inner ring -->
+  <circle cx="300" cy="300" r="38" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.5"/>
+  <!-- Memory symbol (brain-like folds) inside core -->
+  <g transform="translate(300,290)" stroke="white" stroke-width="1.5" fill="none" opacity="0.7">
+    <path d="M -15,8 Q -8,-5 0,8 Q 8,-5 15,8"/>
+    <path d="M -12,15 Q -5,5 3,15 Q 11,5 13,15"/>
+  </g>
+
+  <!-- Core label: M -->
+  <text x="300" y="325" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="sans-serif">M</text>
+
+  <!-- Outer glow ring -->
+  <circle cx="300" cy="300" r="75" fill="none" stroke="#a78bfa" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,8"/>
+
+  <!-- Project name -->
+  <text x="300" y="565" text-anchor="middle" fill="#a78bfa" font-size="28" font-weight="bold" font-family="sans-serif" letter-spacing="4" filter="url(#glow)">MEMFABRIC</text>
+</svg>

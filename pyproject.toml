@@ -1,0 +1,31 @@
+[project]
+name = "memfabric"
+version = "0.1.0"
+description = "跨 Agent 统一记忆织物 — 所有 AI Agent 共享的记忆基础设施"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "MemFabric Community" }]
+readme = "README.md"
+keywords = ["agent", "memory", "mcp", "ai", "llm", "context"]
+
+dependencies = [
+    "chromadb>=0.5.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[project.scripts]
+memfabric = "memfabric.server:main"
+
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = { find = { where = ["src"] } }

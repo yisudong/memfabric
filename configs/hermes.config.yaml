@@ -1,0 +1,14 @@
+# Hermes Agent 接入 MemFabric
+
+在 `$HERMES_HOME/config.yaml` 中添加:
+
+```yaml
+mcp_servers:
+  memfabric:
+    command: python3
+    args:
+      - "-m"
+      - "memfabric.server"
+```
+
+重启 Hermes (`hermes`)，在对话中即可使用 `memory_*` 系列工具。
